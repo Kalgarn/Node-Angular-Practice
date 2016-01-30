@@ -10,9 +10,10 @@
   "moduleType": [],
   "dependencies": {
     "angular": "^1.4.9",
-    "bootstrap": "^3.3.4"
+    "bootstrap": "^3.3.4",
+    "angular-route": "^1.4.9"
   },
-  "install":{
-	"path": "client/libs"
-	}
+  "install": {
+    "path": "client/libs"
+  }
 }
