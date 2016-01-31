@@ -2,11 +2,9 @@
 	<div class="col-md-6-col-md-offset-3">
     <uib-carousel interval="myInterval" no-wrap="noWrapSlides">
       <uib-slide ng-repeat="slide in slides" active="slide.active" index="slide.id">
-        <img ng-src="{{slide.image}}" style="margin:auto;">
-        <div class="carousel-caption">
-          <h4>Slide {{slide.id}}</h4>
-          <p>{{slide.text}}</p>
-        </div>
+       	<a href="{{slide.link}}">
+        	<img ng-src="{{slide.image}}" style="margin:auto;">
+        </a>
       </uib-slide>
     </uib-carousel>
   </div>
