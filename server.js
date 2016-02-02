@@ -7,6 +7,16 @@ var app = express();
 // native nodejs module for resloving pahs
 var path = require('path');
 
+//mongodb
+var mongoose = require('mongoose');
+var configDB = require('./server/config/database.js');
+
+mongoose.connect(configDB.url);
+
+var bodyParser = require('body-parser');
+//app.use(bodyParser.urlencoded({extended : true}));
+app.use(bodyParser.json());
+
 //port
 var port = process.env.port || 8080;
 
@@ -20,6 +30,11 @@ app.use(express.static(path.resolve(__dirname,'client')));
 app.get('/', function(req,res){
 	res.render('index.ejs');
 });
+
+// api
+var api = express.Router();
+require('./server/routes/api')(api);
+app.use('/api', api);
 
 // make app listen incoming requests
 app.listen(port, function(){
