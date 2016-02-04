@@ -14,8 +14,10 @@ var configDB = require('./server/config/database.js');
 mongoose.connect(configDB.url);
 
 var bodyParser = require('body-parser');
+var methodOverride = require('method-override');
 //app.use(bodyParser.urlencoded({extended : true}));
 app.use(bodyParser.json());
+app.use(methodOverride());
 
 //port
 var port = process.env.port || 8080;
