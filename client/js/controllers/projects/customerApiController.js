@@ -7,8 +7,14 @@ myApp.controller('customerApiController', ['$scope', 'Api', function($scope, Api
     });
     
     $scope.delete = function(index){
-        Api.Customer.delete({id: $scope.customers[index]._id}, function(data){
-            $scope.customers.splice(index, 1);
+        bootbox.confirm("Are you sure?", function(answer){
+            if(answer == true){
+                Api.Customer.delete({id: $scope.customers[index]._id}, function(data){
+                $scope.customers.splice(index, 1);
+                    bootbox.alert("customer deleted")
+            }
+        })
+        
         })
     }
     

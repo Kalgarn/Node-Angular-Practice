@@ -11,3 +11,11 @@
 p {
     text-indent: 40px;
 }
+
+tr.ng-enter{
+    animation: bounceIn 1s;
+}
+
+tr.ng_leave{
+    animation: bounceOut 1s;
+}
