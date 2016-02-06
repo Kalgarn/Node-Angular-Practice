@@ -27,33 +27,39 @@
         </form>
     </div>
     <div class="col-md-6">
-        <table class="table table-hover">
-            <thead>
-                <th>
-                    Name
-                </th>
-                <th>
-                    Phone
-                </th>
-                <th>
-                    Address
-                </th>
-            </thead>
-            <tr ng-repeat="customer in customers | startFrom:1 | limitTo:5">
-                <td>
-                    {{customer.lastname}}, {{customer.firstname}}
-                </td>
-                <td>
-                    {{customer.phone}}
-                </td>
-                <td>
-                    {{customer.addres.street}}<br>
-                    {{customer.address.city}}
-                </td>
-                <td>
-                    <i class="fa fa-trash" ng-click="delete($index)"></i>
-                </td>
-            </tr>
-        </table>
+        <div id="customer-table">
+            <table class="table table-hover">
+                <thead>
+                    <th>
+                        Name
+                    </th>
+                    <th>
+                        Phone
+                    </th>
+                    <th>
+                        Address
+                    </th>
+                    <th>
+                        <i class="fa fa-trash" ng-cick="deleteAll()"></i>
+                    </th>
+                </thead>
+                <tr ng-repeat="customer in customers | startFrom: (currentPage - 1) * pageSize | limitTo: pageSize">
+                    <td>
+                        {{customer.lastname}}, {{customer.firstname}}
+                    </td>
+                    <td>
+                        {{customer.phone}}
+                    </td>
+                    <td>
+                        {{customer.addres.street}}<br>
+                        {{customer.address.city}}
+                    </td>
+                    <td>
+                        <i class="fa fa-trash" ng-click="delete((currentPage - 1) * pageSize + $index)"></i>
+                    </td>
+                </tr>
+            </table>
+        </div>
+        <pagination total-item="customers.length" ng-model="currentPage" item-per-page="pageSise"></pagination>
     </div>
 </div>

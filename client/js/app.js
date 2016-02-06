@@ -11,7 +11,7 @@ var myApp = angular.module('myApp', [
     $routeProvider.otherwise({redirectTo: '/home'});
 
 	$locationProvider.html5Mode({enabled: true, requireBase: false});
-}]).filter("startform", function(){
+}]).filter("startFrom", function(){
     return function(data, start){
         return data.slice(start);
     }
