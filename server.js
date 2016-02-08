@@ -4,7 +4,7 @@
 var express = require('express');
 var app = express();
 
-// native nodejs module for resloving pahs
+// native nodejs module for resolving paths
 var path = require('path');
 
 //mongodb
@@ -29,9 +29,10 @@ app.set('views', path.resolve(__dirname,'client','views'));
 app.use(express.static(path.resolve(__dirname,'client')));
 
 // set first route
-app.get('/', function(req,res){
+app.get('*', function(req,res){
 	res.render('index.ejs');
 });
+
 
 // api
 var api = express.Router();

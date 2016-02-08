@@ -1,4 +1,3 @@
-
 myApp.controller('projectsController', ['$scope', 'Api', function($scope, Api){
     $scope.form = {};
     

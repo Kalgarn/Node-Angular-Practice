@@ -11,7 +11,7 @@ myApp.controller('customerApiController', ['$scope', 'Api', function($scope, Api
     $scope.deleteAllc= function(){
         Api.Customer.delete({}, function(data){
             $scope.customers = [];
-        })
+        });
     }
     
     $scope.delete = function(index){
@@ -21,9 +21,9 @@ myApp.controller('customerApiController', ['$scope', 'Api', function($scope, Api
                 $scope.customers.splice(index, 1);
                     bootbox.alert("customer deleted")
             }
-        })
+        });
         
-        })
+        });
     }
     
     $scope.addToDatabase = function(){
