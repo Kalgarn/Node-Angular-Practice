@@ -1,4 +1,4 @@
-myApp.controller('homeController', ['$scope', function($scope){
+myApp.controller('homeController', ['$scope', function ($scope) {
 	$scope.myInterval = 3500;
 	$scope.slides = [{
 		image: "imgs/angular-logo.jpeg",
@@ -17,5 +17,5 @@ myApp.controller('homeController', ['$scope', function($scope){
 	{
 		image: "imgs/Angular-2-beta.jpg",
 		link: "https://angular.io"
-	}]
+	}];
 }]);

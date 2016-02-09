@@ -1,5 +1,5 @@
-myApp.factory('Api', ['$ressource', function($ressource){
+myApp.factory('Api', ['$ressource', function ($ressource) {
     return {
-        Customer: $ressource('/api/customer/:id', {id: '@id'});
-    }
+        Customer: $ressource('/api/customer/:id', {id: '@id'})
+    };
 }]);

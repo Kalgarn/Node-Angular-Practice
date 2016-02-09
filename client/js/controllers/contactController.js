@@ -1,3 +1,3 @@
-myApp.controller('contactController', ['$scope', function($scope){
+myApp.controller('contactController', ['$scope', function ($scope) {
 
 }]);
