@@ -8,7 +8,7 @@ myApp.controller('customerApiController', ['$scope', 'Api', function ($scope, Ap
         $scope.customers = data;
     });
     
-    $scope.deleteAllc = function () {
+    $scope.deleteAll = function () {
         Api.Customer.delete({}, function (data) {
             $scope.customers = [];
         });
@@ -18,10 +18,10 @@ myApp.controller('customerApiController', ['$scope', 'Api', function ($scope, Ap
         bootbox.confirm("Are you sure?", function (answer) {
             if (answer === true) {
                 Api.Customer.delete({id: $scope.customers[index]._id}, function (data) {
-                $scope.customers.splice(index, 1);
-                    bootbox.alert("customer deleted")
-            }
-        });
+                    $scope.customers.splice(index, 1);
+                    bootbox.alert("customer deleted");
+                }
+        )};            
         
         });
     }

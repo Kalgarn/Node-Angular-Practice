@@ -7,6 +7,7 @@ var myApp = angular.module('myApp', [
 	$routeProvider.when('/about', {templateUrl: 'partials/about.html', controller: 'aboutController'});
 	$routeProvider.when('/contact', {templateUrl: 'partials/contact.html', controller: 'contactController'});
 	$routeProvider.when('/projects', {templateUrl: 'partials/projects.html', controller: 'projectsController'});
+    $routeProvider.when('/projects/customerapi', {templateUrl: 'partials/projects/customerapi.html', controller: 'customerApiController'});
     
     $routeProvider.otherwise({redirectTo: '/home'});
 
