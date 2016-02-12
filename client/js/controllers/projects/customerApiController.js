@@ -21,17 +21,18 @@ myApp.controller('customerApiController', ['$scope', 'Api', function ($scope, Ap
                     $scope.customers.splice(index, 1);
                     bootbox.alert("customer deleted");
                 }
-        )};            
-        
+                    );
+            }
         });
-    }
+    };
     
-    $scope.addToDatabase = function(){
-        Api.Customer.save({
-            $scope.customers.push(data);
-        },
-                         function(err){
-            bootbox.alert('Error: ' + err);
-        });
-    }
+    $scope.addToDatabase = function () {
+        Api.Customer.save({}, $scope.form,
+            function (data) {
+                $scope.customers.push(data);
+            },
+            function (err) {
+                bootbox.alert('Error: ' + err);
+            });
+    };
 }]);
