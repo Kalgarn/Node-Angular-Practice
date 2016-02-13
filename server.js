@@ -4,6 +4,10 @@
 var express = require('express');
 var app = express();
 
+// socket.io
+var http = require('http').server(app);
+var io = require('socket.io')(http);
+
 // native nodejs module for resolving paths
 var path = require('path');
 
@@ -28,6 +32,10 @@ app.set('views', path.resolve(__dirname, 'client', 'views'));
 
 app.use(express.static(path.resolve(__dirname, 'client')));
 
+io.on('connection', function(socket){
+    console.log('User connected!');
+});
+
 // set first route
 app.get('*', function (req, res) {
 	res.render('index.ejs');
@@ -40,6 +48,7 @@ require('./server/routes/api')(api);
 app.use('/api', api);
 
 // make app listen incoming requests
-app.listen(port, function () {
+//app.listen
+http.listen(port, function () {
 	console.log('SERVER IS RUNNING... PORT:' + port);
 });
