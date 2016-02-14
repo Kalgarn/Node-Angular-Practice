@@ -5,7 +5,7 @@ var express = require('express');
 var app = express();
 
 // socket.io
-var http = require('http').server(app);
+var http = require('http').Server(app);
 var io = require('socket.io')(http);
 
 // native nodejs module for resolving paths
@@ -33,7 +33,10 @@ app.set('views', path.resolve(__dirname, 'client', 'views'));
 app.use(express.static(path.resolve(__dirname, 'client')));
 
 io.on('connection', function(socket){
-    console.log('User connected!');
+    console.log('a user connected!');
+    socket.on('disconnect', function(){
+    console.log('user disconnected');
+  });
 });
 
 // set first route
