@@ -1,1 +1,28 @@
-socket.io
+<div class="row">
+    <div class="col-xs-8 chat-window">
+        <ul}
+            <li ng-repeat="message in messages">
+                <span class="username">{{message.username}}</span>
+                <span class="message">{{message.message}}</span>
+            </li>
+        </ul>
+    </div>   
+    <div class="col-xs-4 chat-window">
+        <ul>
+            <li ng-repeat="user in users">{{user}}</li>
+        </ul>
+    </div>
+</div>
+<div class="row">
+    <form class="form-horizontal">
+        <div class="form-group">
+            <labelfor="chatInput" class="col-sm-1">Chat</labelfor>
+            <div class="col-sm-8">
+                <input type="text" class="form-control" id="chatInput" placeholder="Enter text ..." ng-model="msg">
+            </div>
+            <div class="col-sm-3">
+                <button type="submit" class="btn btn-primary" ng-click="sendMessage(msg)">Send Message</button>
+            </div>
+        </div>
+    </form>
+</div>
